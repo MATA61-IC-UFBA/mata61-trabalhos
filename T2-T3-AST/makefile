@@ -6,6 +6,7 @@ compile:
 	./compile_parser.sh
 
 test:
+	./compile_orem_oins.sh
 	./t2_test.sh
 
 all:
