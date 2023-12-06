@@ -53,10 +53,10 @@ echo
 if [ -f "blite" ]; then
 
 # create feedback folder with tests
-if [ ! -d "$testenv$feedback" ]; then
-   mkdir "$testenv$feedback"
-   cp -r "$testenv$testfolder/" "$testenv$feedback"
-fi
+# if [ ! -d "$testenv$feedback" ]; then
+#   mkdir "$testenv$feedback"
+#   cp -r "$testenv$testfolder/" "$testenv$feedback"
+#fi
 
 # find, set context and run parser
 echo "running ................................"
