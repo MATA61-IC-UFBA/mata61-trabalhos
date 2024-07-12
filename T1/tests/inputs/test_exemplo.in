@@ -1,0 +1,10 @@
+// main.in
+main: function integer () =
+{
+    a: integer;
+    read(a);
+    if (a <= 0) 
+       a = -a;
+    print "saida: ", a;
+}
+

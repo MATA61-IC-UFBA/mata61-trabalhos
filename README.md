@@ -1,2 +1,8 @@
-# mata61-trabalhos
-Especificação de trabalhos do semestre letivo.
+# Trabalhos Práticos (2024.1)
+
+- [T1](./T1)
+- T2
+- T3
+- T4
+
+
