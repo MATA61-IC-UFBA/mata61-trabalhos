@@ -98,6 +98,7 @@ Para descrever o caractere ```'```, usar ```'\''```.
 Um caractere não pode ser vazio, ou seja, ```''``` é um erro léxico.
 
 Exemplos:
+
 ```
 'a', 'b', '0', '+', '\n', '\0'
 ``` 
@@ -110,6 +111,7 @@ Uma string não pode continuar na próxima linha.
 Uma string pode ser vazia: ```""```.
 
 Exemplo:
+
 ```
 print "execução finalizada.\n";
 ``` 
@@ -117,17 +119,20 @@ print "execução finalizada.\n";
 
 ### Erros Léxicos
 
-- símbolo inválido 
+- símbolo inválido: 
 
 ```?``` (caractere não é um símbolo válido)
+
 ```&``` (existe apenas o símbolo composto &&)
 
 - caracter mal-formado: 
+
 ```''``` (nenhum caractere entre ' e ')
 
 ```'```  (apenas uma ')
 
 - string mal-formada: 
+
 ```
 "abc (final de linha)
 def"
