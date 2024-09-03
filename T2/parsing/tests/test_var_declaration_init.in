@@ -1,0 +1,10 @@
+main: function void () = {
+
+n_rodas: integer = 2;
+n_marchas: integer = 10;
+e_novo: boolean = true;
+mensagem: string = "minha byke";
+caracter: char = '!';
+print mensagem, " com rodas: ", n_rodas, " e marchas: ", n_marchas;
+
+}

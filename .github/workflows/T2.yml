@@ -1,4 +1,4 @@
-name: T1
+name: T2-parteA
 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
@@ -19,13 +19,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: install
-      working-directory: ./T1
+      working-directory: ./T2/parsing
       run: make install
     - name: compile files
-      working-directory: ./T1
+      working-directory: ./T2/parsing
       run: make compile
     - name: test
-      working-directory: ./T1
+      working-directory: ./T2/parsing
       run: make test
 
 

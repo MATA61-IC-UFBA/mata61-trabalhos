@@ -1,7 +1,7 @@
 # compL 
 
 + [Aspectos Léxicos](#aspectos-léxicos)
-+ Aspectos Sintáticos
++ [Aspectos Sintáticos](#aspectos-sintáticos)
 + Aspectos Semânticos
 
 ## Visão Geral
@@ -98,7 +98,6 @@ Para descrever o caractere ```'```, usar ```'\''```.
 Um caractere não pode ser vazio, ou seja, ```''``` é um erro léxico.
 
 Exemplos:
-
 ```
 'a', 'b', '0', '+', '\n', '\0'
 ``` 
@@ -111,7 +110,6 @@ Uma string não pode continuar na próxima linha.
 Uma string pode ser vazia: ```""```.
 
 Exemplo:
-
 ```
 print "execução finalizada.\n";
 ``` 
@@ -119,20 +117,17 @@ print "execução finalizada.\n";
 
 ### Erros Léxicos
 
-- símbolo inválido: 
+- símbolo inválido 
 
 ```?``` (caractere não é um símbolo válido)
-
 ```&``` (existe apenas o símbolo composto &&)
 
 - caracter mal-formado: 
-
 ```''``` (nenhum caractere entre ' e ')
 
 ```'```  (apenas uma ')
 
 - string mal-formada: 
-
 ```
 "abc (final de linha)
 def"
@@ -193,9 +188,6 @@ if (c=='a’) ...
 
 ## Aspectos Sintáticos
 
-TBD.
-
-<!-- 
 Um programa compL é uma sequência de declarações,
 sendo que cada declaração pode ser declaração de função, declaração de protótipo de função ou declaração de variável global com inicialização opcional.
 
@@ -251,6 +243,8 @@ square: function integer ( x: integer ) = {
 ```
 
 ```
+// printarray com while
+
 printarray: function void
  ( a: array [] integer, size: integer ) = {
     i: integer = 0;
@@ -276,18 +270,32 @@ main: function integer () = {
 ### Blocos
 
 Um bloco é um trecho de código entre chaves '{' e '}' tratado como um comando composto.
-O trecho de código compL pode incluir declarações de variáveis locais 
-e um ou mais comandos (ver função  _printarray_).
+O trecho de código compL pode incluir declarações de variáveis locais (opcional) seguidas obrigatoriamente por um ou mais comandos (ver função  _printarray_).
 
 ### Comandos
 
 Comandos básicos em compL incluem
-expressões aritméticas, comandos return, print, if, if-else, while, for.
+expressões aritméticas, comandos return, print, if, if-else, while, for -- semelhantes aos da linguagem C
 Comando composto é uma sequência de comandos básicos separados por ';'.
 
 O comando _print_ não é considerado como chamada de função e recebe uma lista de expressões separadas por ','.
 
 - Exemplo: ```print "The temperature is: ", temp, " degrees\n";```
+
+- Exemplo de ```for```:
+
+```
+// printarray com for
+
+printarray: function void (a: array [] integer, 
+                           size: integer ) = 
+{
+    i: integer;
+    for(i=0;i<size;i=i+1) {
+        print a[i], "\n";
+    }
+}
+```
 
 ### Expressões
 
@@ -298,14 +306,13 @@ A seguir, listamos os operadores de compL, da maior para a menor precedência.
 ```
 [] f()           // array, chamada de função
 - !              // negação, not
-* /  %            // multiplicação, divisão, resto
+* /              // multiplicação, divisão
 + -              // adição, subtração
 < <= > >= == !=  // comparação
 && ||            // e lógico, ou lógico
 =                // atribuição
 
 ```
--->
 
 --- 
 
