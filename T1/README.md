@@ -1,10 +1,9 @@
 # Projeto e Implementação de um Compilador.
 
-
 ## Trabalho 1 (T1): Análise Léxica
 
 Nesta parte do projeto, você irá implementar um analisador léxico
-para a [linguagem de alto nível compL](../compL/MANUAL.md).
+para a linguagem de programação de alto nível [compL](../compL/MANUAL.md).
 
 O analisador léxico do trabalho T1 deve receber como entrada
 um programa fonte na linguagem compL e retornar um sequência _tokens_,

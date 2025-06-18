@@ -1,8 +1,10 @@
-# Trabalhos Práticos (2024.1)
+# Trabalhos Práticos
 
 - [T1](./T1)
 - [T2](./T2)
-- T3
-- T4
+- [T3](./T3)
+- [T4](./T4)
+- [T5](./T5)
+
 
 
