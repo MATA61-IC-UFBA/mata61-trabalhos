@@ -29,9 +29,7 @@ __ID__     Identificador
 
 __NUM__    Literal decimal (inteiro)
 
-__STR__    Literal string  (cadeia entre aspas duplas)
-
-__KEY__    Keyword (palavra-chave)
+__KEYW__    Keyword (palavra-chave)
 
 Código ASCII do caracter	Símbolo especial simples
 
@@ -76,49 +74,51 @@ a saída gerada em _main.out_ será:
 
 ```
 (2,ID,"main")
-(2,:,":")
-(2,KEY,"function")
-(2,KEY,"integer")
-(2,(,"(")
-(2,),")")
-(2,=,"=")
-(3,{,"{")
+(2,SYM,":")
+(2,KEYW,"function")
+(2,KEYW,"integer")
+(2,SYM,"(")
+(2,SYM,")")
+(2,SYM,"=")
+(3,SYM,"{")
 (4,ID,"a")
-(4,:,":")
-(4,KEY,"integer")
-(4,;,";")
+(4,SYM,":")
+(4,KEYW,"integer")
+(4,SYM,";")
 (5,ID,"read")
-(5,(,"(")
+(5,SYM,"(")
 (5,ID,"a")
-(5,),")")
-(5,;,";")
-(6,KEY,"if")
-(6,(,"(")
+(5,SYM,")")
+(5,SYM,";")
+(6,KEYW,"if")
+(6,SYM,"(")
 (6,ID,"a")
-(6,LTE,"<=")
+(6,SYMC,"<=")
 (6,NUM,"0")
-(6,),")")
+(6,SYM,")")
 (7,ID,"a")
-(7,ATR,"=")
+(7,SYM,"=")
 (7,NUM,"1")
-(7,;,";")
-(8,KEY,"print")
-(8,STR,""saida: "")
-(8,,,",")
+(7,SYM,";")
+(8,KEYW,"print")
+(8,ERROR,""")
+(8,ID,"saida")
+(8,SYM,":")
+(8,ERROR,""")
+(8,SYM,",")
 (8,ID,"a")
-(8,;,";")
-(9,},"}")
+(8,SYM,";")
+(9,SYM,"}")
 ```
 
 ## Como gerar o seu analisador léxico executável
 
-Os arquivos na pasta T1/_src_ do repositório são
+Os arquivos na pasta T1 do repositório são
 ```compl.l```, ```token.h``` e ```main.c```.
 Você só deve editar e modificar o arquivo _compl.l_
 para especificar seus padrões regulares e ações para
 a análise léxica de programas escritos em _compL_.
 
-Na pasta ```src````:
 ```
 $ flex compl.l    # gera o arquivo lex.yy.c
 ```
@@ -128,8 +128,8 @@ e, em seguida:
 cc -o compl lex.yy.c main.c
 ```
 
-O script ```compile.sh''' realiza estes dois passos e copia o executável
-para fora da pasta ```src````. Bastar rodar:
+O script ```compile.sh'''.
+
 ```
 ./compile.sh
 ```
@@ -153,22 +153,12 @@ $ ./compl exemplo.in exemplo.out
 
 O arquivo de saída deve conter uma sequência de triplas.
 
-## Como testar
-
-Use o script ```run_tests.sh``` para testar seu analisador léxico.
-Alguns testes são fornecidos, ou seja, programas em compL com extensão ```.in``` 
-(ver pasta ```tests/inputs```), e o oráculo (ver pasta ```tests/oracle```).
-A saída gerada por seu analisador léxico será colocada em ```tests/outputs```.
-
-```
-$ ./run_tests.sh  # comando para rodar os casos de testes em /tests
-```
-
 ## Entrega
 
 A entrega do T1 deve ser feita no repositório 
 criado pelo GitHub Classroom, via Pull Request.
 
-- O arquivo ```T1/src/compl.l``` deverá ser modificado para incluir sua solução. Apenas este arquivo será considerado na correção de T1.
-- _Não_ modificar outros arquivos ou incluir arquivos novos na pasta _src_.
+- O arquivo ```T1/compl.l``` deverá ser modificado para incluir sua solução. Apenas este arquivo será considerado na correção de T1.
+- _Não_ modificar outros arquivos ou incluir arquivos novos.
+
 
