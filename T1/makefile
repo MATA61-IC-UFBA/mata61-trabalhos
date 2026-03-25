@@ -12,4 +12,3 @@ all:
 	make compile
 	make test
 
-

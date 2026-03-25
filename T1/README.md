@@ -1,5 +1,8 @@
 # Projeto e Implementação de um Compilador.
 
+- Parte 1 de 5
+- Em dupla
+
 ## Trabalho 1 (T1): Análise Léxica
 
 Nesta parte do projeto, você irá implementar um analisador léxico
@@ -8,7 +11,7 @@ para a linguagem de programação de alto nível [compL](../compL/MANUAL.md).
 O analisador léxico do trabalho T1 deve receber como entrada
 um programa fonte na linguagem compL e retornar um sequência _tokens_,
 um a um, cada _token_ anotado com as seguintes informações:
-- classe do _token_ (identificador, constante inteira, símbolo, etc)
+- classe do _token_ (ID, NUM, símbolo, etc)
 - lexema do _token_ (cadeia de caracteres),
 no caso de identificadores e constantes literais.
 
@@ -28,13 +31,11 @@ __NUM__    Literal decimal (inteiro)
 
 __STR__    Literal string  (cadeia entre aspas duplas)
 
-__CHAR__   Literal caractere  (caractere entre aspas simples)
-
 __KEY__    Keyword (palavra-chave)
 
-__SYM__    Símbolo especial simples
+Código ASCII do caracter	Símbolo especial simples
 
-__SYMC__   Símbolo especial composto
+Código do símbolo composto 	Símbolo especial composto
 
 __ERROR__  Erro léxico
 
@@ -75,38 +76,38 @@ a saída gerada em _main.out_ será:
 
 ```
 (2,ID,"main")
-(2,SYM,":")
+(2,:,":")
 (2,KEY,"function")
 (2,KEY,"integer")
-(2,SYM,"(")
-(2,SYM,")")
-(2,SYM,"=")
-(3,SYM,"{")
+(2,(,"(")
+(2,),")")
+(2,=,"=")
+(3,{,"{")
 (4,ID,"a")
-(4,SYM,":")
+(4,:,":")
 (4,KEY,"integer")
-(4,SYM,";")
+(4,;,";")
 (5,ID,"read")
-(5,SYM,"(")
+(5,(,"(")
 (5,ID,"a")
-(5,SYM,")")
-(5,SYM,";")
+(5,),")")
+(5,;,";")
 (6,KEY,"if")
-(6,SYM,"(")
+(6,(,"(")
 (6,ID,"a")
-(6,SYMC,"<=")
+(6,LTE,"<=")
 (6,NUM,"0")
-(6,SYM,")")
+(6,),")")
 (7,ID,"a")
-(7,SYM,"=")
+(7,ATR,"=")
 (7,NUM,"1")
-(7,SYM,";")
+(7,;,";")
 (8,KEY,"print")
 (8,STR,""saida: "")
-(8,SYM,",")
+(8,,,",")
 (8,ID,"a")
-(8,SYM,";")
-(9,SYM,"}")
+(8,;,";")
+(9,},"}")
 ```
 
 ## Como gerar o seu analisador léxico executável
