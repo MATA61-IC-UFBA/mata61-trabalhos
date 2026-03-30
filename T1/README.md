@@ -31,11 +31,21 @@ __NUM__    Literal decimal (inteiro)
 
 __KEYW__    Keyword (palavra-chave)
 
-Código ASCII do caracter	Símbolo especial simples
+__SYM__	   Símbolo especial simples
 
-Código do símbolo composto 	Símbolo especial composto
+__SYMC_    Símbolo especial composto
 
 __ERROR__  Erro léxico
+
+
+### Tokens
+
+**Ver o arquivo "token.h"**.
+
+O código do token que o analisador léxico deve retornar deve ser uma das constantes 
+definidas no tipo enumerado __token_t__. 
+Para símbolos simples (+, -, etc.), o analisador deve retornar o código ASCII do caractere.
+
 
 ## Entrada
 
