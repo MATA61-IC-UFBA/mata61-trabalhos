@@ -1,8 +1,7 @@
 name: Autograding Tests
 on:
-  - push
-  - workflow_dispatch
-  - repository_dispatch
+- push
+- repository_dispatch
 permissions:
   checks: write
   actions: read
@@ -14,26 +13,103 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      # This is where you place your autograding tests
-      # For more information on this runner, see the documentation at: https://github.com/classroom-resources/autograding-io-grader
-      #
-      # For example, you could run a test suite like this:
-      # - name: Run tests
-      #   uses: classroom-resources/autograding-io-grader@v1
-      #     with:
-      #       test-name: Addition Test
-      #       id: addition-test
-      #       command: "./bin/add.sh"
-      #       input: 1 2
-      #       expected-output: 3
-      #       comparison-method: exact
-      #       timeout: 10
+    - name: install
+      working-directory: ./T1
+      run: make install
+    - name: compile files
+      working-directory: ./T1
+      run: make compile
+    - name: T1
+      id: test_id
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: test_id
+        setup-command: ''
+        command: "./T1/compl"
+        input: |-
+a
+b
+_c
+d_
+7
+_
+fifa
+FIFA
+linguagem
+Linguagem
+_linguagem
+linguagem_
+linguag3m
+1inguagem
+lingua-gem
+        expected-output: |-
+(1,ID,"a")
+(2,ID,"b")
+(3,ERROR,"_")
+(3,ID,"c")
+(4,ID,"d_")
+(5,NUM,"7")
+(6,ERROR,"_")
+(7,ID,"fifa")
+(8,ID,"FIFA")
+(9,ID,"linguagem")
+(10,ID,"Linguagem")
+(11,ERROR,"_")
+(11,ID,"linguagem")
+(12,ID,"linguagem_")
+(13,ID,"linguag3m")
+(14,NUM,"1")
+(14,ID,"inguagem")
+(15,ID,"lingua")
+(15,SYM,"-")
+(15,ID,"gem")
+        comparison-method: exact
+        timeout: 10
+        max-score: 10
+    - name: test_key
+      id: test_key
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: test_key
+        setup-command: ''
+        command: "./T1/compl"
+        input: |-
+boolean
+else
+false
+function
+if
+integer
+print
+return
+string
+true
+void
+while
+for
+char
+        expected-output: |-
+(1,KEYW,"boolean")
+(2,KEYW,"else")
+(3,KEYW,"false")
+(4,KEYW,"function")
+(5,KEYW,"if")
+(6,KEYW,"integer")
+(7,KEYW,"print")
+(8,KEYW,"return")
+(9,ID,"string")
+(10,KEYW,"true")
+(11,KEYW,"void")
+(12,KEYW,"while")
+(13,ID,"for")
+(14,ID,"char")
+        comparison-method: exact
+        timeout: 10
+        max-score: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
-      # For more information on this runner, see the documentation at https://github.com/classroom-resources/autograding-grading-reporter
-      # To output the results of the tests, you can use the
-      # autograding-grading-reporter action like this:
-      # env:
-      # ADDITION-TEST_RESULTS: "${{ steps.addition - test.outputs.result }}"
-      #     with:
-      #         runners: addition-test
+      env:
+        test_id_RESULTS: "${{steps.test_id.outputs.result}}"
+        test_key_RESULTS: "${{steps.test_key.outputs.result}}"
+      with:
+        runners: test_id, test_key
