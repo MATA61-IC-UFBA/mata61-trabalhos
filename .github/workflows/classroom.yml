@@ -23,7 +23,7 @@ jobs:
       id: t1a
       uses: classroom-resources/autograding-io-grader@v1
       with:
-        test-name: test_id
+        test-name: t1a
         setup-command: ''
         command: "./T1/compl"
         input: |-
@@ -70,7 +70,7 @@ lingua-gem
       id: t1b
       uses: classroom-resources/autograding-io-grader@v1
       with:
-        test-name: test_key
+        test-name: t1b
         setup-command: ''
         command: "./T1/compl"
         input: |-
@@ -104,12 +104,13 @@ char
 (13,ID,"for")
 (14,ID,"char")
         comparison-method: exact
+ comparison-method: exact 
         timeout: 10
         max-score: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        t1a_RESULTS: "${{steps.t1a.outputs.result}}"
-        t1b_RESULTS: "${{steps.t1b.outputs.result}}"
+        T1A_RESULTS: "${{steps.t1a.outputs.result}}"
+        T1B_RESULTS: "${{steps.t1b.outputs.result}}"
       with:
         runners: t1a, t1b
