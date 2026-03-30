@@ -10,7 +10,6 @@ flex compl.l
 cc -o compl lex.yy.c main.c
 
 if [ -e "$T1/compl" ] ; then
-# change compl to exec and move it to T1
 	chmod +x compl
 fi
 
