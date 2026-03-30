@@ -20,7 +20,7 @@ jobs:
       working-directory: ./T1
       run: make compile
     - name: T1
-      id: test_id
+      id: t1a
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: test_id
@@ -66,8 +66,8 @@ lingua-gem
         comparison-method: exact
         timeout: 10
         max-score: 10
-    - name: test_key
-      id: test_key
+    - name: T1
+      id: t1b
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: test_key
@@ -109,7 +109,7 @@ char
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        test_id_RESULTS: "${{steps.test_id.outputs.result}}"
-        test_key_RESULTS: "${{steps.test_key.outputs.result}}"
+        t1a_RESULTS: "${{steps.t1a.outputs.result}}"
+        t1b_RESULTS: "${{steps.t1b.outputs.result}}"
       with:
-        runners: test_id, test_key
+        runners: t1a, t1b
