@@ -26,6 +26,9 @@ jobs:
         test-name: t1a
         setup-command: ''
         command: "./T1/compl"
+        comparison-method: exact
+        timeout: 10
+        max-score: 10
         input: |-
 a
 b
@@ -63,9 +66,6 @@ lingua-gem
 (15,ID,"lingua")
 (15,SYM,"-")
 (15,ID,"gem")
-        comparison-method: exact
-        timeout: 10
-        max-score: 10
     - name: T1
       id: t1b
       uses: classroom-resources/autograding-io-grader@v1
@@ -73,6 +73,9 @@ lingua-gem
         test-name: t1b
         setup-command: ''
         command: "./T1/compl"
+        comparison-method: exact
+        timeout: 10
+        max-score: 10
         input: |-
 boolean
 else
@@ -103,10 +106,6 @@ char
 (12,KEYW,"while")
 (13,ID,"for")
 (14,ID,"char")
-        comparison-method: exact
- comparison-method: exact 
-        timeout: 10
-        max-score: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
