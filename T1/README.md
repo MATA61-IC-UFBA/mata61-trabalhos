@@ -25,18 +25,20 @@ a análise léxica deve prosseguir até o final do programa fonte.
 
 Em sua implementação do analisador léxico, considere as seguintes classes de _tokens_ da linguagem compL:
 
-__ID__     Identificador
+__ID__      Identificador
 
-__NUM__    Literal decimal (inteiro)
+__NUM__     Literal decimal (inteiro)
 
 __KEYW__    Keyword (palavra-chave)
 
-__SYM__	   Símbolo especial simples
+__SYM__     Símbolo especial simples   
 
-__SYMC_    Símbolo especial composto
+__SYMC__    Símbolo especial composto
 
-__ERROR__  Erro léxico
+__ERROR__   Erro léxico
 
+- O arquivo ```"token.h"``` define os códigos dos tokens. Para a classe __SYM__, 
+retornar o código ASCII do caractere.
 
 ### Tokens
 
@@ -138,12 +140,13 @@ e, em seguida:
 cc -o compl lex.yy.c main.c
 ```
 
-O script ```compile.sh'''.
+- ou rodar o script ```compile.sh'''.
 
 ```
 ./compile.sh
 ```
-ou
+- ou
+
 ```
 make compile
 ```
