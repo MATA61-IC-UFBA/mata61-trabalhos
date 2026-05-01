@@ -1,0 +1,7 @@
+// test func call
+
+main: function void() = { 
+   input(a);
+   x = input(b); 
+}
+

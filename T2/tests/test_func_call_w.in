@@ -1,0 +1,6 @@
+// test func call
+
+main: function void() = { 
+   x = while(b); 
+}
+

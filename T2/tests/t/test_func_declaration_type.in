@@ -1,3 +1,0 @@
-// func declaration type
-
-foo: function boolean () = { return true; }

@@ -1,3 +1,0 @@
-// 0 parameter
-
-main: function void () = { return ; }

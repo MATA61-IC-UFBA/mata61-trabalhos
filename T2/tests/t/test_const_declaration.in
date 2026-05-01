@@ -1,3 +1,0 @@
-// TP2 test:  valid initialization
-min: integer = 1;
-main: function void () = { return min; }

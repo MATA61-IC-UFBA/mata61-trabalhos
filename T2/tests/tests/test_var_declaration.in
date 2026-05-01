@@ -1,8 +1,0 @@
-main: function void () = 
-{
-  a: integer;
-  c: boolean;
-
-  return 0;
-}
-
