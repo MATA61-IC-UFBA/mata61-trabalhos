@@ -1,0 +1,8 @@
+// dangling else
+
+main: function void () = {
+
+   if (a > 10) 
+      if (b == 0) return a; else return (0-a);
+}
+

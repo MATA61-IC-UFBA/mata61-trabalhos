@@ -1,0 +1,14 @@
+// test_assoc_plus
+
+main: function void () = {
+
+i: integer = 10;
+j: integer = 2;
+k: integer = 5;
+
+x: integer;
+
+x = 100 + i + j + k;
+print(x);
+
+}

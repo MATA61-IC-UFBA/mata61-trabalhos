@@ -1,0 +1,11 @@
+main: function void ( ) = {
+   a:integer = 0;
+   b:boolean = false;
+   c: integer = 1;
+   a = 0;
+   while a+5<10+c) {
+      c = a + c;
+      a = a + 1;
+   }
+   
+}
