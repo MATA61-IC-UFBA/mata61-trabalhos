@@ -25,6 +25,6 @@ jobs:
       working-directory: ./T2
       run: make compile
     - name: test
-      working-directory: ./T2/tests
+      working-directory: ./T2
       run: make test
 
