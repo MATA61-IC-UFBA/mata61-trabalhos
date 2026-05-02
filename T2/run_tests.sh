@@ -22,31 +22,30 @@ fi
 cd "$tests"
 mytests=$(ls *.in)
 
-echo "Running tests ..."
-
+echo "Running tests"
+echo "---"
 totalp=0
 totalf=0
 
 for t in $mytests; do
     name="$(basename $t .in).out"
     ora="$(basename $t .in).ora"
-    echo "Running $t ..."
-    ./compl "$tests/$t"  "$tests/$name"
+    echo -n "Running $t ..."
+    ./compl "$tests/$t" "$tests/$name"
     n1=`diff -bB -iw "$tests/$name" "$tests/$ora" | grep "^>" | wc -l`
     n2=`diff -bB -iw "$tests/$name" "$tests/$ora" | grep "^<" | wc -l`
     if [[ $n1 -eq 0 ]] && [[ $n2 -eq 0 ]] ; then
-        # echo -n "."
+        echo 
         ((totalp++))
     else
-        echo "Fail"
+        echo "FAIL"
         ((totalf++))
     fi
 done
 
-echo "---------------------"
+echo "---"
 echo "PASS: $totalp"
 echo "FAIL: $totalf"
-echo "---------------------"
 echo
 echo "Done"
 
