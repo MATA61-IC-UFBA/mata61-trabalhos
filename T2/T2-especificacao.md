@@ -6,7 +6,7 @@
 
 ## Aspectos Sintáticos
 
-Um programa compL é uma sequência de declarações,
+Um programa _compL_ é uma sequência de declarações,
 sendo que cada declaração pode ser 
 uma declaração de função
 ou declaração de variável com inicialização opcional.
@@ -21,15 +21,16 @@ As declarações de função não podem ser aninhadas.
 um identificador, seguido por ':', pelo seu tipo e por ';'.
 O tipo pode ser simples (integer ou boolean) ou estruturado (array). 
 Não há variável 'void'
-- A variável de tipo simples pode ser inicializada na declaração; nesse caso, o tipo declarado será seguido por '=', por um valor do tipo e por ';'.
+- A variável de tipo simples pode ser inicializada na declaração; 
+nesse caso, o tipo declarado será seguido por '=', por um valor do tipo e por ';'.
 - A definição do tipo estruturado "array" inicia-se pela 
 palavra reservada ```array```,  seguida pelo seu 
 tamanho (um valor do tipo integer entre colchetes) 
 e pelo tipo base de seus elementos.
-- A variável do tipo "array" pode ser inicializada na declaração; 
-nesse caso, o tipo declarado será seguido por '=', 
-por um sequência de valores (entre chaves e separados por vírgula) 
-de um tipo simples, e por ';'.
+- A variável do tipo ```array``` pode ser inicializada na declaração.
+Nesse caso, a declaração de tipo  será seguida por '=', 
+por um sequência de valores de um tipo simples
+(entre chaves e separados por vírgula) e por ';'.
 
 #### Exemplos
 
@@ -43,16 +44,13 @@ b: array [3] boolean = {true,false,false};
 
 ### Declaração de função
 
-O corpo de uma função é definido entre chaves '{' e '}'.
-No corpo de uma função, pode-se declarar variáveis locais, 
-incluindo do tipo array, com inicialização opcional e 
-comandos.
-
-Uma declaração de função em compL começa pelo seu nome,
+A declaração de uma função em compL inclui sua assinatura (protótipo),
+seguida por um bloco de comandos.
+A declaração começa pelo nome da função,
 seguido por ':', seguido pela palavra-chave ```function```, 
 pelo tipo (ou _void_), 
 por uma lista de parâmetros entre '(' e '), o símbolo '=' e
-por um bloco ( _código entre {}_) -- o corpo da função.
+por um bloco de comandos ( _código entre {}_) -- ou corpo da função.
 
 - A função pode ter tipo atômico simples ou _void_ (ver printarray).
 - A lista de parâmetros pode ser vazia, ou conter um ou mais parâmetros separados por ','
@@ -70,9 +68,9 @@ square: function integer ( x: integer ) = {
 
 ```
 
-- A declaração de um parâmetro do tipo array não deve indicar a dimensão do array 
-entre '[' e ']': A dimensão, sempre um valor inteiro, deve ser representada como 
-um parâmtro adiciomal (ver printarray).
+- Um _parâmetro do tipo _array_  não deve indicar a dimensão do array 
+entre '[' e ']'. Um parâmetro adicional para receber a dimensão do array,
+sempre um valor inteiro, deve seguir o parâmetro di tipo array. 
 
 ```
 // printarray com while
@@ -89,12 +87,16 @@ printarray: function void ( a: array [] integer,
 
 ```
 
+O corpo de uma função é definido como um bloco.
+Pode-se declarar variáveis locais com inicialização opcional,
+seguidas por comandos da linguagem.
+
 ### Blocos
 
-Um bloco é um trecho de código entre chaves '{' e '}'
+Um _bloco_ é um trecho de código entre chaves '{' e '}'
 que define um novo _escopo_ (a ser discutido nos aspectos semânticos).
-O trecho de código compL pode incluir declarações de variáveis locais  
-e obrigatoriamente um ou mais comandos (ver função  _printarray_).
+O trecho de código _compL_ pode incluir declarações de variáveis locais  
+e obrigatoriamente ao menos um comando (ver função  _printarray_).
 Declarações de variáveis devem preceder __todos__ os comandos do bloco.
 Pode-se declarar variáveis locais a um bloco mas não funções.
 Não há ';' (ponto-e-vírgula) após o símbolo '}'.
@@ -106,12 +108,17 @@ comando de atribuição, return, print, if, if-else, while
 e chamadas de função.
 Comandos básicos são separados por ';'.
 No caso de if, if-else e while com blocos, 
-não se deve colocar ';' após '}' (ver _printarray_ acima).
+não se deve colocar ';' após o '}' (ver _printarray_ acima).
 
 O comando _print_ não é considerado como chamada de função 
 e recebe uma lista de expressões separadas por ','.
 
-- Exemplo: ```print (temp, total);```
+- Exemplo: ```print(temp, total);```
+
+O comando _return_ inclui a palavra reservada ```return```
+seguida por uma expressão _expr_ ou por ';'. 
+
+- Exemplo: ```return ;```
 
 ### Expressões
 

@@ -18,15 +18,27 @@ uma sequência _tokens_ do analisador léxico, um a um, e retornar:
 
 ## Atividades
 
-- Copiar o analisador léxico feito em T1 (t1.l) para o arquivo t2.l e
-fazer as alterações necessárias;
-- Escrever programa Bison para a linguagem compL;
-- Usar o programa principal fornecido em _main.c_ sem alterações.
+A pasta de trabalho é `T2`. Usar apenas essa pasta.
+Os principais arquivos na pasta T2 do repositório são
+`t2.y`, `main.c` e `makefile`.
+
+- Copiar o arquivo flex do trabalho T1 para a pasta T2
+e renomear para ```t2.l```;
+- Modificar `T2/t2.l` para integração com bison, se necessário;
+- Escrever programa Bison `t2.y` para a linguagem compL seguindo a especificação de [compL](./T2-especificacao.md)
+- Não modificar o arquivo `T2/main.c`;
+- Não modificar o arquivo `T2/makefile`.
+
+Você deve editar e modificar o arquivo `t2.y`
+para especificar os tokens e regras de produção
+para _compL_.
 
 ### Entrada
 
-Um arquivo de entrada (com extensão _.in_),
-contendo um programa fonte em compL.
+Um arquivo de entrada (com extensão `.in`),
+contendo um programa fonte em _compL_.
+
+Exemplo:
 
 ```
 // main.in
@@ -36,7 +48,7 @@ main: function void () =
     read(a);
     if (a <= 0)
        a = 1;
-    print a;
+    print(a);
 }
 ```
 
@@ -48,46 +60,36 @@ contendo:
 - "syntax error", em caso de erro sintático no programa de entrada, ou
 - "no syntax errors".
 
+## Como gerar `compl` executável localmente
 
-## Como gerar o analisador sintático executável
-
-A pasta de trabalho é ```T2```. Usar apenas essa pasta.
-Os arquivos na pasta T2 do repositório são
-```t2.y``` e ```main.c```.
+A pasta de trabalho é `T2`. Usar apenas essa pasta.
+Os principais arquivos na pasta T2 do repositório são
+`t2.y`, `main.c` e `makefile`.
 
 - Copiar o arquivo flex do trabalho T1 para a pasta T2 
 e renomear para ```t2.l```;
-- Modificar T2/t2.l para integração com bison, se necessário;
-- Utilizar o arquivo T2/main.c (não modificar).
+- Modificar `T2/t2.l` para integração com bison, se necessário;
+- Não modificar o arquivo `T2/main.c`;
+- Não modificar o arquivo `T2/makefile`.
+- 
 
-Você deve editar e modificar o arquivo ```t2.y```
+Você deve editar e modificar o arquivo `t2.y`
 para especificar os tokens e regras de produção
 para _compL_.
 
-- Rodar bison:
-
-```
-$ bison --defines=token.h --output=t2.c t2.y
-```
-
-- Rodar flex:
-
-```
-$ flex t2.l    # gera o arquivo lex.yy.c
-```
-
-e, em seguida, compilar e gerar executável:
-
-```
-cc -o compl lex.yy.c t2.c main.c
-```
-
-- ou:
+Para rodar flex, bison e compilar:
 
 ```
 make compile
 ```
 
+## Como testar localmente
+
+Para testar com todos os casos de teste definidos na pasta `tests` (extensão `.in`): 
+
+```
+make test
+```
 
 ## Entrega
 
